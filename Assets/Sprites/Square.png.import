@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2emmg21cfe3l"
-path="res://.godot/imported/Circle.png-4c2daeed5b68bce1e78feca310d5dbd2.ctex"
+uid="uid://byfdjgrm5clur"
+path="res://.godot/imported/Square.png-baf5925d496b5cca246e3a93e6c61213.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Circle.png"
-dest_files=["res://.godot/imported/Circle.png-4c2daeed5b68bce1e78feca310d5dbd2.ctex"]
+source_file="res://Assets/Sprites/Square.png"
+dest_files=["res://.godot/imported/Square.png-baf5925d496b5cca246e3a93e6c61213.ctex"]
 
 [params]
 
