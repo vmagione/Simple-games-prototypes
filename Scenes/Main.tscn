@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_game"]
+[ext_resource type="Script" path="res://Scripts/paddle.gd" id="2_paddle"]
+[ext_resource type="Script" path="res://Scripts/ball.gd" id="3_ball"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Square.png" id="4_square"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Circle.png" id="5_circle"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ball"]
+bounce = 1.0
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(1152, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_goal"]
+size = Vector2(36, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paddle"]
+size = Vector2(22, 140)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ball"]
+radius = 14.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_game")
+
+[node name="CenterLineTop" type="Sprite2D" parent="."]
+position = Vector2(576, 156)
+scale = Vector2(0.4, 5.5)
+texture = ExtResource("4_square")
+modulate = Color(0.4, 0.4, 0.4, 1)
+
+[node name="CenterLineBottom" type="Sprite2D" parent="."]
+position = Vector2(576, 564)
+scale = Vector2(0.4, 5.5)
+texture = ExtResource("4_square")
+modulate = Color(0.4, 0.4, 0.4, 1)
+
+[node name="TopWall" type="StaticBody2D" parent="."]
+position = Vector2(576, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="Sprite2D" type="Sprite2D" parent="TopWall"]
+scale = Vector2(18, 0.75)
+texture = ExtResource("4_square")
+modulate = Color(0.2, 0.65, 1, 1)
+
+[node name="BottomWall" type="StaticBody2D" parent="."]
+position = Vector2(576, 696)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="Sprite2D" type="Sprite2D" parent="BottomWall"]
+scale = Vector2(18, 0.75)
+texture = ExtResource("4_square")
+modulate = Color(0.2, 0.65, 1, 1)
+
+[node name="LeftGoal" type="Area2D" parent="."]
+groups = ["goal_left"]
+position = Vector2(-18, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftGoal"]
+shape = SubResource("RectangleShape2D_goal")
+
+[node name="RightGoal" type="Area2D" parent="."]
+groups = ["goal_right"]
+position = Vector2(1170, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightGoal"]
+shape = SubResource("RectangleShape2D_goal")
+
+[node name="LeftPaddle" type="CharacterBody2D" parent="."]
+position = Vector2(80, 360)
+script = ExtResource("2_paddle")
+up_action = &"left_up"
+down_action = &"left_down"
+top_limit = 88.0
+bottom_limit = 632.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPaddle"]
+shape = SubResource("RectangleShape2D_paddle")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftPaddle"]
+scale = Vector2(0.34375, 2.1875)
+texture = ExtResource("4_square")
+modulate = Color(0.9, 0.35, 0.35, 1)
+
+[node name="RightPaddle" type="CharacterBody2D" parent="."]
+position = Vector2(1072, 360)
+script = ExtResource("2_paddle")
+up_action = &"right_up"
+down_action = &"right_down"
+top_limit = 88.0
+bottom_limit = 632.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPaddle"]
+shape = SubResource("RectangleShape2D_paddle")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightPaddle"]
+scale = Vector2(0.34375, 2.1875)
+texture = ExtResource("4_square")
+modulate = Color(0.35, 0.6, 1, 1)
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(576, 360)
+physics_material_override = SubResource("PhysicsMaterial_ball")
+continuous_cd = 2
+gravity_scale = 0.0
+linear_damp = 0.0
+angular_damp = 0.0
+script = ExtResource("3_ball")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_ball")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("5_circle")
+modulate = Color(1, 0.95, 0.45, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_left = 487.0
+offset_top = 24.0
+offset_right = 665.0
+offset_bottom = 87.0
+text = "0   :   0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Ball" to="Ball" method="_on_goal_detector_area_entered"]
