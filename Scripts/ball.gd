@@ -39,6 +39,8 @@ func reset_ball(direction: float, launch: bool = true) -> void:
 	_current_speed = serve_speed
 	_active_contacts.clear()
 	_is_in_play = false
+	visible = true
+	freeze = not launch
 	sleeping = false
 
 	if launch:
@@ -48,6 +50,7 @@ func is_in_play() -> bool:
 	return _is_in_play and linear_velocity.length() > 0.001
 
 func _launch(direction: float) -> void:
+	freeze = false
 	var dir := Vector2(direction, randf_range(-0.65, 0.65)).normalized()
 	linear_velocity = dir * _current_speed
 	_is_in_play = true
