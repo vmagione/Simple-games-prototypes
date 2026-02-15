@@ -32,7 +32,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	elif speed > max_speed:
 		state.linear_velocity = state.linear_velocity.normalized() * max_speed
 
-func reset_ball(direction: float, launch: bool = true) -> void:
+func reset_ball() -> void:
 	global_position = _start_position
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0.0
@@ -40,11 +40,15 @@ func reset_ball(direction: float, launch: bool = true) -> void:
 	_active_contacts.clear()
 	_is_in_play = false
 	visible = true
-	freeze = not launch
+	freeze = true
 	sleeping = false
 
-	if launch:
-		_launch(direction)
+func launch_ball() -> void:
+	if _is_in_play:
+		return
+
+	var horizontal_dir := 1.0 if randf() > 0.5 else -1.0
+	_launch(horizontal_dir)
 
 func is_in_play() -> bool:
 	return _is_in_play and linear_velocity.length() > 0.001
