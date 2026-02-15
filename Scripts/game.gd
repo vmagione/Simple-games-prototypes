@@ -19,7 +19,7 @@ func _ready() -> void:
 	_prepare_round(false)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") and not ball.is_in_play():
 		_prepare_round(true)
 
 func _on_left_goal_body_entered(body: Node) -> void:
