@@ -23,11 +23,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		_prepare_round(true)
 
 func _on_left_goal_body_entered(body: Node) -> void:
-	if body == ball:
+	if body == ball and ball.is_in_play():
 		_on_goal_scored(2)
 
 func _on_right_goal_body_entered(body: Node) -> void:
-	if body == ball:
+	if body == ball and ball.is_in_play():
 		_on_goal_scored(1)
 
 func _on_goal_scored(player: int) -> void:
