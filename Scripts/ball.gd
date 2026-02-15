@@ -1,7 +1,5 @@
 extends RigidBody2D
 
-signal goal_scored(player: int)
-
 @export var serve_speed: float = 560.0
 @export var speed_increment: float = 45.0
 @export var max_speed: float = 920.0
@@ -56,8 +54,3 @@ func _increase_speed(state: PhysicsDirectBodyState2D) -> void:
 	_current_speed = minf(_current_speed + speed_increment, max_speed)
 	state.linear_velocity = state.linear_velocity.normalized() * _current_speed
 
-func _on_goal_detector_area_entered(area: Area2D) -> void:
-	if area.is_in_group("goal_left"):
-		goal_scored.emit(2)
-	elif area.is_in_group("goal_right"):
-		goal_scored.emit(1)
