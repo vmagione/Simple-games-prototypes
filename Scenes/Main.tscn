@@ -74,6 +74,7 @@ position = Vector2(1170, 360)
 shape = SubResource("RectangleShape2D_goal")
 
 [node name="LeftPaddle" type="CharacterBody2D" parent="."]
+groups = ["paddle"]
 position = Vector2(80, 360)
 script = ExtResource("2_paddle")
 up_action = &"left_up"
@@ -90,6 +91,7 @@ texture = ExtResource("4_square")
 modulate = Color(0.9, 0.35, 0.35, 1)
 
 [node name="RightPaddle" type="CharacterBody2D" parent="."]
+groups = ["paddle"]
 position = Vector2(1072, 360)
 script = ExtResource("2_paddle")
 up_action = &"right_up"

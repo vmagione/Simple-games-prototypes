@@ -7,11 +7,17 @@ extends Node2D
 
 var _left_score := 0
 var _right_score := 0
+var _serve_to_right := true
 
 func _ready() -> void:
 	ball.goal_scored.connect(_on_goal_scored)
+	_serve_to_right = randf() > 0.5
 	_update_score()
-	_start_round(randf() > 0.5)
+	_prepare_round(false)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		_prepare_round(true)
 
 func _on_goal_scored(player: int) -> void:
 	if player == 1:
@@ -19,14 +25,16 @@ func _on_goal_scored(player: int) -> void:
 	else:
 		_right_score += 1
 
+	_serve_to_right = player == 1
 	_update_score()
-	left_paddle.reset_position()
-	right_paddle.reset_position()
-	_start_round(player == 1)
+	_prepare_round(false)
 
 func _update_score() -> void:
-	score_label.text = "%d   :   %d" % [_left_score, _right_score]
+	score_label.text = "%d   :   %d\nPressione ESPAÇO para iniciar" % [_left_score, _right_score]
 
-func _start_round(serve_to_right: bool) -> void:
-	var direction := 1.0 if serve_to_right else -1.0
-	ball.reset_ball(direction)
+func _prepare_round(launch: bool) -> void:
+	left_paddle.reset_position()
+	right_paddle.reset_position()
+
+	var direction := 1.0 if _serve_to_right else -1.0
+	ball.reset_ball(direction, launch)
