@@ -4,13 +4,16 @@ extends Node2D
 @onready var left_paddle = $LeftPaddle
 @onready var right_paddle = $RightPaddle
 @onready var ball = $Ball
+@onready var left_goal = $LeftGoal
+@onready var right_goal = $RightGoal
 
 var _left_score := 0
 var _right_score := 0
 var _serve_to_right := true
 
 func _ready() -> void:
-	ball.goal_scored.connect(_on_goal_scored)
+	left_goal.body_entered.connect(_on_left_goal_body_entered)
+	right_goal.body_entered.connect(_on_right_goal_body_entered)
 	_serve_to_right = randf() > 0.5
 	_update_score()
 	_prepare_round(false)
@@ -18,6 +21,14 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		_prepare_round(true)
+
+func _on_left_goal_body_entered(body: Node) -> void:
+	if body == ball:
+		_on_goal_scored(2)
+
+func _on_right_goal_body_entered(body: Node) -> void:
+	if body == ball:
+		_on_goal_scored(1)
 
 func _on_goal_scored(player: int) -> void:
 	if player == 1:
