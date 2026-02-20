@@ -65,9 +65,9 @@ func _draw_maze() -> void:
 		child.queue_free()
 
 	for y in MAZE_LAYOUT.size():
-		var row := MAZE_LAYOUT[y]
+		var row = MAZE_LAYOUT[y]
 		for x in row.length():
-			var cell := row[x]
+			var cell = row[x]
 			var grid_pos := Vector2i(x, y)
 			if cell == "#":
 				_add_square(walls_container, grid_pos, Color(0.25, 0.35, 0.85, 1.0))
