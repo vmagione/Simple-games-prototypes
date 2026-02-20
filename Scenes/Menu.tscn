@@ -48,7 +48,7 @@ text = "Jogar"
 
 [node name="Hint" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Pressione Espaço/Enter para iniciar"
+text = "Pressione Espaço/Enter para iniciar | ESC volta ao menu durante o jogo"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
