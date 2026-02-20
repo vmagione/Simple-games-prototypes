@@ -2,9 +2,15 @@ extends Control
 
 @onready var game_list: ItemList = $MarginContainer/VBoxContainer/GameList
 
+const GAMES := [
+	{"name": "Pong", "scene": "res://Scenes/Main.tscn"},
+	{"name": "Snake", "scene": "res://Scenes/Snake.tscn"}
+]
+
 func _ready() -> void:
 	game_list.clear()
-	game_list.add_item("Pong")
+	for game in GAMES:
+		game_list.add_item(game["name"])
 	game_list.select(0)
 	game_list.item_activated.connect(_on_game_activated)
 
@@ -23,5 +29,8 @@ func _start_selected_game() -> void:
 	if selected.is_empty():
 		return
 
-	if game_list.get_item_text(selected[0]) == "Pong":
-		get_tree().change_scene_to_file("res://Scenes/Main.tscn")
+	var selected_name := game_list.get_item_text(selected[0])
+	for game in GAMES:
+		if game["name"] == selected_name:
+			get_tree().change_scene_to_file(game["scene"])
+			return
