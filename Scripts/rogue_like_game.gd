@@ -87,7 +87,7 @@ func _handle_player_movement(delta: float) -> void:
 
 func _update_enemies(delta: float) -> void:
 	for enemy in enemies_container.get_children():
-		var to_player := player_sprite.position - enemy.position
+		var to_player = player_sprite.position - enemy.position
 		if to_player.length() > 0.1:
 			enemy.position += to_player.normalized() * enemy.get_meta("speed") * delta
 
@@ -211,7 +211,7 @@ func _get_closest_enemy() -> Sprite2D:
 	var best_distance := INF
 
 	for enemy in enemies_container.get_children():
-		var distance := enemy.position.distance_squared_to(player_sprite.position)
+		var distance = enemy.position.distance_squared_to(player_sprite.position)
 		if distance < best_distance:
 			best_distance = distance
 			closest_enemy = enemy
