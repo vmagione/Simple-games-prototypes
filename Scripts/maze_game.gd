@@ -1,9 +1,10 @@
 extends Node2D
 
 const CELL_SIZE := 32
+const WALL_SCALE := Vector2(1.0, 1.0)
 const MAZE_LAYOUT := [
 	"####################",
-	"S....#.......#....#",
+	"S.............#....#",
 	"###.#.#.#####.#.###",
 	"#...#.#.....#.#...#",
 	"#.###.#####.#.###.#",
@@ -70,12 +71,12 @@ func _draw_maze() -> void:
 			var cell = row[x]
 			var grid_pos := Vector2i(x, y)
 			if cell == "#":
-				_add_square(walls_container, grid_pos, Color(0.25, 0.35, 0.85, 1.0))
+				_add_square(walls_container, grid_pos, Color(0.25, 0.35, 0.85, 1.0), WALL_SCALE)
 			elif cell == "S":
 				_start_cell = grid_pos
 			elif cell == "E":
 				_exit_cell = grid_pos
-				_add_square(exit_container, grid_pos, Color(0.95, 0.75, 0.2, 1.0))
+				_add_square(exit_container, grid_pos, Color(0.95, 0.75, 0.2, 1.0), Vector2(0.9, 0.9))
 
 func _reset_player() -> void:
 	_won = false
@@ -106,13 +107,13 @@ func _render_player() -> void:
 	for child in player_container.get_children():
 		child.queue_free()
 
-	_add_square(player_container, _player_cell, Color(0.2, 0.95, 0.3, 1.0))
+	_add_square(player_container, _player_cell, Color(0.2, 0.95, 0.3, 1.0), Vector2(0.8, 0.8))
 
-func _add_square(parent: Node2D, cell: Vector2i, color: Color) -> void:
+func _add_square(parent: Node2D, cell: Vector2i, color: Color, scale_size: Vector2) -> void:
 	var sprite := Sprite2D.new()
 	sprite.texture = _square_texture
 	sprite.modulate = color
-	sprite.scale = Vector2(0.5, 0.5)
+	sprite.scale = scale_size
 	sprite.position = Vector2(cell * CELL_SIZE) + Vector2(CELL_SIZE / 2, CELL_SIZE / 2)
 	parent.add_child(sprite)
 

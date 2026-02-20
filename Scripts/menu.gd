@@ -5,7 +5,8 @@ extends Control
 const GAMES := [
 	{"name": "Pong", "scene": "res://Scenes/Main.tscn"},
 	{"name": "Snake", "scene": "res://Scenes/Snake.tscn"},
-	{"name": "Labirinto", "scene": "res://Scenes/Maze.tscn"}
+	{"name": "Labirinto", "scene": "res://Scenes/Maze.tscn"},
+	{"name": "Rogue Like Arena", "scene": "res://Scenes/RogueLike.tscn"}
 ]
 
 func _ready() -> void:

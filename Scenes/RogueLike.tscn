@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/rogue_like_game.gd" id="1_rogue"]
+
+[node name="RogueLike" type="Node2D"]
+script = ExtResource("1_rogue")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="Player" type="Sprite2D" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.2
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.28
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InfoLabel" type="Label" parent="CanvasLayer"]
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 1140.0
+offset_bottom = 52.0
+text = "Rogue Like"
