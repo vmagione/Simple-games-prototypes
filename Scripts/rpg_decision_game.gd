@@ -172,11 +172,11 @@ func _add_race_buttons() -> void:
 		)
 
 func _add_class_buttons() -> void:
-	for class_name in CLASSES.keys():
-		var class_data: Dictionary = CLASSES[class_name]
-		var button := _create_button("%s (Atributo principal: %s)" % [class_name, class_data["main"]])
+	for class_name_aux in CLASSES.keys():
+		var _class_name: Dictionary = CLASSES[class_name_aux]
+		var button := _create_button("%s (Atributo principal: %s)" % [_class_name, class_name_aux["main"]])
 		button.pressed.connect(func() -> void:
-			_select_class(class_name)
+			_select_class(class_name_aux)
 		)
 
 func _add_challenge_buttons(options: Array) -> void:
@@ -217,9 +217,9 @@ func _select_race(race_name: String) -> void:
 	_current_node = "class_select"
 	_refresh_ui()
 
-func _select_class(class_name: String) -> void:
-	_class = class_name
-	_stats[CLASSES[class_name]["main"]] += 1
+func _select_class(_class_name: String) -> void:
+	_class = _class_name
+	_stats[CLASSES[_class_name]["main"]] += 1
 	_stats["CON"] += 1
 	_current_node = "gate"
 	_refresh_ui()
