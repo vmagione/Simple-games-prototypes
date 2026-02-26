@@ -173,8 +173,8 @@ func _add_race_buttons() -> void:
 
 func _add_class_buttons() -> void:
 	for class_name_aux in CLASSES.keys():
-		var _class_name: Dictionary = CLASSES[class_name_aux]
-		var button := _create_button("%s (Atributo principal: %s)" % [_class_name, class_name_aux["main"]])
+		var class_data: Dictionary = CLASSES[class_name_aux]
+		var button := _create_button("%s (Atributo principal: %s)" % [class_name_aux, class_data["main"]])
 		button.pressed.connect(func() -> void:
 			_select_class(class_name_aux)
 		)
