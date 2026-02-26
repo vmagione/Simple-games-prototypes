@@ -8,7 +8,8 @@ const GAMES := [
 	{"name": "Labirinto", "scene": "res://Scenes/Maze.tscn"},
 	{"name": "Rogue Like Arena", "scene": "res://Scenes/RogueLike.tscn"},
 	{"name": "Desvio", "scene": "res://Scenes/Dodger.tscn"},
-	{"name": "Crônicas do Quadrado", "scene": "res://Scenes/Story.tscn"}
+	{"name": "Crônicas do Quadrado", "scene": "res://Scenes/Story.tscn"},
+	{"name": "Lendas de Avelorn (RPG)", "scene": "res://Scenes/RPGDecision.tscn"}
 ]
 
 func _ready() -> void:
