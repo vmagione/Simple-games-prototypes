@@ -147,7 +147,7 @@ func _mine_target_block() -> void:
 	if not _is_inside_world(target.x, target.y):
 		return
 
-	var block_type := _world_data[target.y][target.x]
+	var block_type = _world_data[target.y][target.x]
 	if block_type == BLOCK_AIR:
 		return
 
