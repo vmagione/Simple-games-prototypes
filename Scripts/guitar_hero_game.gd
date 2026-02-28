@@ -113,13 +113,13 @@ func _try_hit_lane(lane_index: int) -> void:
 		if note.get_meta("lane") != lane_index:
 			continue
 
-		var distance := abs(note.position.y - hit_line_y)
+		var distance = abs(note.position.y - hit_line_y)
 		if distance < best_distance:
 			best_distance = distance
 			best_note = note
 
 	if best_note != null and best_distance <= NOTE_HIT_WINDOW:
-		var points := 100 + min(_combo, 20) * 10
+		var points = 100 + min(_combo, 20) * 10
 		_score += points
 		_hits += 1
 		_combo += 1
