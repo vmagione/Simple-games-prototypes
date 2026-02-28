@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Scripts/block_world_game.gd" id="1_block_world"]
+
+[node name="BlockWorld" type="Node2D"]
+script = ExtResource("1_block_world")
+
+[node name="WorldBlocks" type="Node2D" parent="."]
+
+[node name="PlayerBottom" type="Sprite2D" parent="."]
+
+[node name="PlayerTop" type="Sprite2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InfoLabel" type="Label" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 1220.0
+offset_bottom = 44.0
+text = "Carregando..."

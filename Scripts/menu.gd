@@ -9,7 +9,8 @@ const GAMES := [
 	{"name": "Rogue Like Arena", "scene": "res://Scenes/RogueLike.tscn"},
 	{"name": "Desvio", "scene": "res://Scenes/Dodger.tscn"},
 	{"name": "Crônicas do Quadrado", "scene": "res://Scenes/Story.tscn"},
-	{"name": "Lendas de Avelorn (RPG)", "scene": "res://Scenes/RPGDecision.tscn"}
+	{"name": "Lendas de Avelorn (RPG)", "scene": "res://Scenes/RPGDecision.tscn"},
+	{"name": "Terraria Lite", "scene": "res://Scenes/BlockWorld.tscn"}
 ]
 
 func _ready() -> void:
