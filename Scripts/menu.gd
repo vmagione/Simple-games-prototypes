@@ -41,5 +41,7 @@ func _start_selected_game() -> void:
 	var selected_name := game_list.get_item_text(selected[0])
 	for game in GAMES:
 		if game["name"] == selected_name:
-			get_tree().change_scene_to_file(game["scene"])
+			var change_error := get_tree().change_scene_to_file(game["scene"])
+			if change_error != OK:
+				push_error("Falha ao abrir cena %s (erro %d)" % [game["scene"], change_error])
 			return
