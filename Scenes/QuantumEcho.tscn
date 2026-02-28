@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://Scripts/quantum_echo_game.gd" id="1_script"]
+
+[node name="QuantumEcho" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(320, 360)
+
+[node name="Echo" type="Sprite2D" parent="."]
+position = Vector2(832, 360)
+
+[node name="Notes" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Label" parent="CanvasLayer"]
+offset_left = 130.0
+offset_top = 24.0
+offset_right = 1020.0
+offset_bottom = 64.0
+horizontal_alignment = 1
+text = "Ecos Quânticos"
