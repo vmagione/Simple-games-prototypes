@@ -1,6 +1,6 @@
 extends Node2D
 
-const LANE_ACTIONS := [&"ui_left", &"ui_down", &"ui_up", &"ui_right"]
+const LANE_ACTIONS := [&"guitar_lane_a", &"guitar_lane_s", &"guitar_lane_d", &"guitar_lane_f"]
 const LANE_COLORS := [
 	Color(0.3, 0.8, 1.0, 1.0),
 	Color(0.45, 1.0, 0.45, 1.0),
@@ -136,7 +136,7 @@ func _miss_note(note: Sprite2D) -> void:
 	note.queue_free()
 
 func _update_label() -> void:
-	info_label.text = "Beat Grid | Pontos: %d | Combo: %d | Acertos: %d | Erros: %d\nSetas = notas (← ↓ ↑ →) | ESC menu" % [_score, _combo, _hits, _misses]
+	info_label.text = "Beat Grid | Pontos: %d | Combo: %d | Acertos: %d | Erros: %d\nTeclas = A S D F | ESC menu" % [_score, _combo, _hits, _misses]
 
 func _randomize_seed() -> void:
 	seed(Time.get_unix_time_from_system())
