@@ -183,8 +183,8 @@ func _refresh_sheet_list() -> void:
 		var character_name := String(sheet.get("character_name", "")).strip_edges()
 		if character_name.is_empty():
 			character_name = "Ficha sem nome"
-		var class_name := String(sheet.get("class", ""))
-		sheet_list.add_item("%d) %s - %s" % [i + 1, character_name, class_name])
+		var player_class_name := String(sheet.get("class", ""))
+		sheet_list.add_item("%d) %s - %s" % [i + 1, character_name, player_class_name])
 
 	empty_label.visible = _sheets.is_empty()
 

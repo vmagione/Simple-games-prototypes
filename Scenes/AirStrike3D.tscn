@@ -1,40 +1,39 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://buuo286lfotoy"]
 
-[ext_resource type="Script" path="res://Scripts/air_strike_3d_game.gd" id="1_air3d"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
-size = Vector2(42, 56)
+[ext_resource type="Script" uid="uid://7cxjc2uwqnm6" path="res://Scripts/air_strike_3d_game.gd" id="1_air3d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ground"]
 albedo_color = Color(0.07, 0.08, 0.14, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_grid"]
-size = Vector2(40, 54)
+[sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
+size = Vector2(42, 56)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grid"]
 albedo_color = Color(0.11, 0.13, 0.2, 1)
 emission_enabled = true
 emission = Color(0.02, 0.04, 0.08, 1)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_grid"]
+size = Vector2(40, 54)
+
 [sub_resource type="Environment" id="Environment_main"]
 background_mode = 2
 background_color = Color(0.02, 0.02, 0.04, 1)
 ambient_light_source = 2
 ambient_light_color = Color(0.3, 0.35, 0.45, 1)
-ambient_light_energy = 1.0
 
 [node name="AirStrike3D" type="Node3D"]
 script = ExtResource("1_air3d")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
-position = Vector3(0, -0.65, -6)
-mesh = SubResource("PlaneMesh_ground")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65, -6)
 material_override = SubResource("StandardMaterial3D_ground")
+mesh = SubResource("PlaneMesh_ground")
 
 [node name="GridGuide" type="MeshInstance3D" parent="."]
-position = Vector3(0, -0.62, -6)
-mesh = SubResource("PlaneMesh_grid")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.62, -6)
 material_override = SubResource("StandardMaterial3D_grid")
+mesh = SubResource("PlaneMesh_grid")
 
 [node name="PlayerContainer" type="Node3D" parent="."]
 
@@ -46,13 +45,11 @@ material_override = SubResource("StandardMaterial3D_grid")
 wait_time = 0.95
 
 [node name="Camera3D" type="Camera3D" parent="."]
-position = Vector3(0, 30, 9)
-rotation_degrees = Vector3(-78, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.20791166, 0.9781476, 0, -0.9781476, 0.20791166, 0, 30, 9)
 current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-position = Vector3(0, 9, 5)
-rotation_degrees = Vector3(-52, -18, 0)
+transform = Transform3D(0.95105654, 0.24350871, -0.19024988, 0, 0.6156615, 0.7880107, 0.309017, -0.74944276, 0.5855289, 0, 9, 5)
 light_energy = 1.4
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
