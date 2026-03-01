@@ -13,7 +13,8 @@ const GAMES := [
 	{"name": "Terraria Lite", "scene": "res://Scenes/BlockWorld.tscn"},
 	{"name": "Ecos Quânticos", "scene": "res://Scenes/QuantumEcho.tscn"},
 	{"name": "Beat Grid (Guitar Hero)", "scene": "res://Scenes/GuitarHero.tscn"},
-	{"name": "Sky Raid 3D", "scene": "res://Scenes/AirStrike3D.tscn"}
+	{"name": "Sky Raid 3D", "scene": "res://Scenes/AirStrike3D.tscn"},
+	{"name": "Ficha D&D 5e", "scene": "res://Scenes/DndSheetManager.tscn"}
 ]
 
 func _ready() -> void:

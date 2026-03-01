@@ -1,0 +1,223 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/dnd_sheet_manager_game.gd" id="1_dnd"]
+
+[node name="DndSheetManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dnd")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07, 0.06, 0.09, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 36
+
+[node name="ListPanel" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="MarginContainer/ListPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Gerenciador de Fichas D&D 5e"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="MarginContainer/ListPanel"]
+layout_mode = 2
+text = "Selecione uma ficha salva ou crie uma nova"
+horizontal_alignment = 1
+
+[node name="SheetList" type="ItemList" parent="MarginContainer/ListPanel"]
+custom_minimum_size = Vector2(0, 380)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EmptyLabel" type="Label" parent="MarginContainer/ListPanel"]
+layout_mode = 2
+text = "Nenhuma ficha salva ainda. Clique em Nova Ficha para começar."
+horizontal_alignment = 1
+
+[node name="ListButtons" type="HBoxContainer" parent="MarginContainer/ListPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="NewSheetButton" type="Button" parent="MarginContainer/ListPanel/ListButtons"]
+layout_mode = 2
+text = "Nova Ficha"
+
+[node name="EditButton" type="Button" parent="MarginContainer/ListPanel/ListButtons"]
+layout_mode = 2
+text = "Editar Selecionada"
+
+[node name="ListHint" type="Label" parent="MarginContainer/ListPanel"]
+layout_mode = 2
+text = "ESC volta ao menu inicial"
+horizontal_alignment = 1
+
+[node name="EditorPanel" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/EditorPanel"]
+layout_mode = 2
+
+[node name="PanelTitle" type="Label" parent="MarginContainer/EditorPanel/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Nova Ficha"
+
+[node name="IdLabel" type="Label" parent="MarginContainer/EditorPanel/Header"]
+layout_mode = 2
+text = "Ficha nova"
+horizontal_alignment = 2
+
+[node name="FormGrid" type="GridContainer" parent="MarginContainer/EditorPanel"]
+layout_mode = 2
+columns = 2
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 8
+
+[node name="CharacterNameLabel" type="Label" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+text = "Nome do personagem"
+
+[node name="CharacterNameEdit" type="LineEdit" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+placeholder_text = "Ex.: Arannis"
+
+[node name="PlayerNameLabel" type="Label" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+text = "Nome do jogador"
+
+[node name="PlayerNameEdit" type="LineEdit" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+placeholder_text = "Ex.: Carla"
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+text = "Nível"
+
+[node name="LevelSpin" type="SpinBox" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+min_value = 1.0
+max_value = 20.0
+value = 1.0
+
+[node name="RaceLabel" type="Label" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+text = "Raça"
+
+[node name="RaceOption" type="OptionButton" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+
+[node name="ClassLabel" type="Label" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+text = "Classe"
+
+[node name="ClassOption" type="OptionButton" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+
+[node name="BackgroundLabel" type="Label" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+text = "Antecedente"
+
+[node name="BackgroundOption" type="OptionButton" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+
+[node name="AlignmentLabel" type="Label" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+text = "Alinhamento"
+
+[node name="AlignmentOption" type="OptionButton" parent="MarginContainer/EditorPanel/FormGrid"]
+layout_mode = 2
+
+[node name="AbilitiesTitle" type="Label" parent="MarginContainer/EditorPanel"]
+layout_mode = 2
+text = "Atributos"
+
+[node name="AbilitiesGrid" type="GridContainer" parent="MarginContainer/EditorPanel"]
+layout_mode = 2
+columns = 6
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 6
+
+[node name="StrengthEdit" type="LineEdit" parent="MarginContainer/EditorPanel/AbilitiesGrid"]
+layout_mode = 2
+placeholder_text = "FOR"
+
+[node name="DexterityEdit" type="LineEdit" parent="MarginContainer/EditorPanel/AbilitiesGrid"]
+layout_mode = 2
+placeholder_text = "DES"
+
+[node name="ConstitutionEdit" type="LineEdit" parent="MarginContainer/EditorPanel/AbilitiesGrid"]
+layout_mode = 2
+placeholder_text = "CON"
+
+[node name="IntelligenceEdit" type="LineEdit" parent="MarginContainer/EditorPanel/AbilitiesGrid"]
+layout_mode = 2
+placeholder_text = "INT"
+
+[node name="WisdomEdit" type="LineEdit" parent="MarginContainer/EditorPanel/AbilitiesGrid"]
+layout_mode = 2
+placeholder_text = "SAB"
+
+[node name="CharismaEdit" type="LineEdit" parent="MarginContainer/EditorPanel/AbilitiesGrid"]
+layout_mode = 2
+placeholder_text = "CAR"
+
+[node name="NotesLabel" type="Label" parent="MarginContainer/EditorPanel"]
+layout_mode = 2
+text = "Anotações"
+
+[node name="NotesEdit" type="TextEdit" parent="MarginContainer/EditorPanel"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonsRow" type="HBoxContainer" parent="MarginContainer/EditorPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="MarginContainer/EditorPanel/ButtonsRow"]
+layout_mode = 2
+text = "Salvar"
+
+[node name="DeleteButton" type="Button" parent="MarginContainer/EditorPanel/ButtonsRow"]
+layout_mode = 2
+text = "Excluir"
+
+[node name="CancelButton" type="Button" parent="MarginContainer/EditorPanel/ButtonsRow"]
+layout_mode = 2
+text = "Voltar para Lista"
+
+[node name="EditorHint" type="Label" parent="MarginContainer/EditorPanel"]
+layout_mode = 2
+text = "ESC volta ao menu inicial"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/ListPanel/ListButtons/NewSheetButton" to="." method="_on_new_sheet_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ListPanel/ListButtons/EditButton" to="." method="_on_edit_button_pressed"]
