@@ -243,7 +243,7 @@ func _on_server_tick() -> void:
 			_alive[peer_id] = false
 			continue
 
-		var snake := _snakes[peer_id] as Array[Vector2i]
+		var snake = _snakes[peer_id] as Array[Vector2i]
 		snake.push_front(head)
 		var ate_food := false
 		for food_index in _foods.size():
@@ -266,7 +266,7 @@ func _on_server_tick() -> void:
 	_sync_state_to_clients()
 
 func _ensure_food_count() -> void:
-	var target_food_count := max(_snakes.size(), 1)
+	var target_food_count = max(_snakes.size(), 1)
 	while _foods.size() < target_food_count:
 		_spawn_food()
 	while _foods.size() > target_food_count:
@@ -422,7 +422,7 @@ func _poll_discovery_packets() -> void:
 			_discovery_listener.set_dest_address(sender_ip, _discovery_listener.get_packet_port())
 			_discovery_listener.put_packet(response.to_utf8_buffer())
 		elif packet.begins_with("{"):
-			var parsed := JSON.parse_string(packet)
+			var parsed = JSON.parse_string(packet)
 			if typeof(parsed) == TYPE_DICTIONARY and parsed.get("type", "") == "room":
 				_register_room(parsed)
 
