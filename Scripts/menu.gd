@@ -15,7 +15,8 @@ const GAMES := [
 	{"name": "Ecos Quânticos", "scene": "res://Scenes/QuantumEcho.tscn"},
 	{"name": "Beat Grid (Guitar Hero)", "scene": "res://Scenes/GuitarHero.tscn"},
 	{"name": "Sky Raid 3D", "scene": "res://Scenes/AirStrike3D.tscn"},
-	{"name": "Ficha D&D 5e", "scene": "res://Scenes/DndSheetManager.tscn"}
+	{"name": "Ficha D&D 5e", "scene": "res://Scenes/DndSheetManager.tscn"},
+	{"name": "Correio Orbital", "scene": "res://Scenes/OrbitalCourier.tscn"}
 ]
 
 func _ready() -> void:
