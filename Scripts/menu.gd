@@ -35,6 +35,9 @@ func _on_play_button_pressed() -> void:
 func _on_game_activated(_index: int) -> void:
 	_start_selected_game()
 
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
+
 func _start_selected_game() -> void:
 	var selected := game_list.get_selected_items()
 	if selected.is_empty():

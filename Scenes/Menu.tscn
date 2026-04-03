@@ -189,6 +189,20 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_button")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
 text = "Jogar"
 
+[node name="QuitButton" type="Button" parent="MarginContainer/PanelContainer/Padding/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+text = "Fechar Jogo"
+
 [node name="Hint" type="Label" parent="MarginContainer/PanelContainer/Padding/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.741176, 0.835294, 0.968627, 0.95)
@@ -197,3 +211,4 @@ text = "Enter ou Espaço para iniciar. ESC volta ao menu durante a partida."
 horizontal_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/Padding/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/Padding/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
