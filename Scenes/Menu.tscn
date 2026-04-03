@@ -16,6 +16,18 @@ corner_radius_bottom_left = 28
 shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 18
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pill"]
+bg_color = Color(0.403922, 0.854902, 0.992157, 0.18)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.403922, 0.854902, 0.992157, 0.4)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_list"]
 bg_color = Color(0.968627, 0.980392, 1, 0.95)
 border_width_left = 2
@@ -37,6 +49,13 @@ corner_radius_bottom_left = 16
 shadow_color = Color(0, 0, 0, 0.18)
 shadow_size = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_pressed"]
+bg_color = Color(0.956863, 0.329412, 0.458824, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
 bg_color = Color(1, 0.572549, 0.360784, 1)
 corner_radius_top_left = 16
@@ -45,25 +64,6 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_pressed"]
-bg_color = Color(0.956863, 0.329412, 0.458824, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pill"]
-bg_color = Color(0.403922, 0.854902, 0.992157, 0.18)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.403922, 0.854902, 0.992157, 0.4)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -103,6 +103,8 @@ offset_left = 120.0
 offset_top = 28.0
 offset_right = 620.0
 offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
 rotation = 0.346884
 color = Color(1, 0.737255, 0.454902, 0.2)
 
@@ -164,13 +166,10 @@ horizontal_alignment = 1
 [node name="GameList" type="ItemList" parent="MarginContainer/PanelContainer/Padding/VBoxContainer"]
 custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
-theme_override_colors/default_color = Color(0.176471, 0.223529, 0.376471, 1)
-theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hovered_color = Color(0.0941176, 0.164706, 0.305882, 1)
 theme_override_colors/font_hovered_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_colors/guide_color = Color(0.717647, 0.839216, 0.980392, 0.5)
-theme_override_colors/selection_fill = Color(0.290196, 0.654902, 0.980392, 1)
-theme_override_colors/selection_border = Color(0.180392, 0.458824, 0.937255, 1)
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_list")
@@ -179,28 +178,28 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_list")
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
-theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
 text = "Jogar"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/PanelContainer/Padding/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
-theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_button_hover")
 text = "Fechar Jogo"
 
 [node name="Hint" type="Label" parent="MarginContainer/PanelContainer/Padding/VBoxContainer"]

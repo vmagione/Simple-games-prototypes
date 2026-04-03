@@ -213,7 +213,7 @@ func _set_game_over() -> void:
 	_update_label()
 
 func _update_label() -> void:
-	var survival_seconds := snapped(_survival_time, 0.1)
+	var survival_seconds: float = snappedf(_survival_time, 0.1)
 	if _game_over:
 		info_label.text = "Resgate Estelar | Estrelas: %d | Tempo: %.1fs | Colisao! Enter reinicia | ESC menu" % [_score, survival_seconds]
 	else:
@@ -230,5 +230,9 @@ func _build_background_stars() -> void:
 		})
 	queue_redraw()
 
+
+
+func test():
+	pass
 func _randomize_seed() -> void:
 	seed(Time.get_unix_time_from_system())
