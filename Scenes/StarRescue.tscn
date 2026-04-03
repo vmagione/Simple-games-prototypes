@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://Scripts/star_rescue_game.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/SpaceShooter/playerShip1_blue.png" id="2_ship"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/SpaceShooter/meteorBrown_med1.png" id="3_meteor"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/SpaceShooter/powerupBlue_star.png" id="4_star"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/SpaceShooter/ufoRed.png" id="5_ufo"]
+
+[node name="StarRescue" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Collectibles" type="Node2D" parent="."]
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Player" type="Sprite2D" parent="."]
+texture = ExtResource("2_ship")
+
+[node name="HazardTimer" type="Timer" parent="."]
+wait_time = 0.85
+
+[node name="StarTimer" type="Timer" parent="."]
+wait_time = 1.25
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InfoLabel" type="Label" parent="CanvasLayer"]
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 1134.0
+offset_bottom = 60.0
+text = "Resgate Estelar"
+
