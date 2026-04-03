@@ -16,6 +16,7 @@ const GAMES := [
 	{"name": "Beat Grid (Guitar Hero)", "scene": "res://Scenes/GuitarHero.tscn"},
 	{"name": "Sky Raid 3D", "scene": "res://Scenes/AirStrike3D.tscn"},
 	{"name": "Resgate Estelar", "scene": "res://Scenes/StarRescue.tscn"},
+	{"name": "Corrida da Cripta", "scene": "res://Scenes/CryptRun.tscn"},
 	{"name": "Ficha D&D 5e", "scene": "res://Scenes/DndSheetManager.tscn"}
 ]
 
