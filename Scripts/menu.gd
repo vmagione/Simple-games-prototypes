@@ -1,6 +1,6 @@
 extends Control
 
-@onready var game_list: ItemList = $MarginContainer/VBoxContainer/GameList
+@onready var game_list: ItemList = $MarginContainer/PanelContainer/Padding/VBoxContainer/GameList
 
 const GAMES := [
 	{"name": "Pong", "scene": "res://Scenes/Main.tscn"},
